@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Books</title>
+    </head>
+
+    <body>
+        <h1>Register with Bookshelf</h1>
+
+        {% if registered %}
+        Bookshelf says: <strong>thank you for registering!</strong>
+        <a href="/bookshelf/">Return to the homepage.</a><br />
+        {% else %}
+        Bookshelf says: <strong>register here!</strong><br />
+
+        <form id="user_form" method="post" action="/bookshelf/register/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ user_form.as_p }}
+            <input type="submit" name="submit" value="Register" />
+        </form>
+        {% endif %}
+        <a href = '/bookshelf/login/'>login</a><br/>
+
+    </body>
+</html>
